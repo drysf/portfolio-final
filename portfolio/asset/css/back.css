@@ -1,0 +1,94 @@
+ /*--------------------------début back-end ------------------------------*/
+ .flex-content-back {
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    backdrop-filter: blur(30px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.185);
+}
+
+#the-container-for-container{
+  justify-content: center;
+}
+
+
+
+#the-container-for-container {
+    display: flex;
+    margin-top: 200px;
+}
+
+.container-form-back-for-columns {
+    display: flex;
+    flex-direction: column; 
+    margin: 0 10px;
+}
+
+.input-back{
+  height: 40px;
+  width: 200px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.label-back{
+  text-transform:capitalize;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+#back-to-portfolio{
+  display: flex;
+  justify-content: end;
+  text-decoration: none;
+  margin: 0px 30px 0px 0px;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#back-container-top-header{
+  height: 100px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  border:5px solid rgb(0, 0, 0);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.375);
+  padding: 20px;
+}
+#back-container-top-header h3{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+.table-back-content {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 80%;
+  table-layout: fixed;
+  margin: 0 auto;
+}
+
+.table-back-content caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+.table-back-content tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+.table-back-content th,
+.table-back-content td {
+  padding: .625em;
+  text-align: center;
+}
+
+.table-back-content th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+  
+  /*-------------------------fin back ------------------------------------*/
