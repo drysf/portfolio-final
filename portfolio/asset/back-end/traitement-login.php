@@ -23,9 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             echo "Identifiant ou mot de passe incorrect.";
+            session_destroy();
         }
     } else {
         echo "Identifiant ou mot de passe incorrect.";
+        session_destroy();
     }
 }
 ?>
+

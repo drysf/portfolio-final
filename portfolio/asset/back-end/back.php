@@ -6,10 +6,8 @@ include './db.php';
 
 session_start();
 
-// Vérifiez si l'utilisateur est authentifié
 if (!isset($_SESSION['identifiant'])) {
-    // Redirigez vers la page d'authentification s'il n'est pas authentifié
-    header("Location: ../../login.php");
+    header("Location: ../login.php");
     exit();
 }
 
@@ -25,21 +23,7 @@ if (!isset($_SESSION['identifiant'])) {
   <h3>BACK-END</h3>
   <a id="back-to-portfolio" href="../../index.php">PORTFOLIO  <i class="fa-solid fa-right-to-bracket" style="color: #000000;"></i></a>
 </section>
-<main id="container-back">
-      <section class="flex-content-back">
-        <h2>Vos derniers messages</h2>
-          <?php afficher_les_contacts() ?>
-        </section>
-        <section class="flex-content-back">
-          <h2>Vos Projets</h2>
-            <?php afficher_les_projets() ?>
-      </section>
-      <section class="flex-content-back">
-        <h2>Vos Compétences</h2>
-        <?php afficher_les_compétences() ?>
-      </section>
-    </main>
-    <section id="form-container-back">
+<section id="form-container-back">
     <form action="" method="post" enctype="multipart/form-data">
       <section id="the-container-for-container">
       <div class="container-form-back-for-columns">
@@ -58,7 +42,34 @@ if (!isset($_SESSION['identifiant'])) {
         <button>valider</button>
       </div>
     </form>
+    <form action="" method="post" enctype="multipart/form-data">
+      <div class="container-form-back-for-columns">
+        <label class="label-back" for="">ajouter une compétence au second plan</label>
+        <input type="text" placeholder="ajouter son titre" class="input-back" name="titreCompSecond">
+        <input type="file" name="imgCompSecond" id="image" accept="image/*">
+        <button>valider</button>
+      </div>
+    </form>
 </section>
+<main id="container-back">
+      <section class="flex-content-back">
+        <h2>Vos derniers messages</h2>
+          <?php afficher_les_contacts() ?>
+        </section>
+        <section class="flex-content-back">
+          <h2>Vos Projets</h2>
+            <?php afficher_les_projets() ?>
+      </section>
+      <section class="flex-content-back">
+        <h2>Vos Compétences</h2>
+        <?php afficher_les_compétences() ?>
+      </section>
+      <section class="flex-content-back">
+        <h2>Vos Compétences du second plan</h2>
+        <?php afficher_les_compétences_second_plan() ?>
+      </section>
+    </main>
+
 
 
 
@@ -68,5 +79,6 @@ if (!isset($_SESSION['identifiant'])) {
 
 ajouter_un_projet();
 ajouter_une_compétence();
+ajouter_une_compétence_second_plan();
 supprimer_une_compétence();
 supprimer_un_projet();

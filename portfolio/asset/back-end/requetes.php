@@ -15,7 +15,7 @@ function ajouter_un_projet()
             $targetDir = "img/";
 
             if (!file_exists($targetDir)) {
-                mkdir($targetDir, 0777, true); 
+                mkdir($targetDir, 0777, true);
             }
             $fileName = basename($_FILES["image"]["name"]);
             $targetFilePath = $targetDir . $fileName;
@@ -44,7 +44,7 @@ function ajouter_une_compétence()
         if (isset($_POST['titreComp']) && isset($_FILES['imgComp']['name'])) {
             $titre_comp = $_POST['titreComp'];
 
-            $targetDir = "img/";
+            $targetDir = "asset/img/";
             $fileName = basename($_FILES["imgComp"]["name"]);
             $targetFilePath = $targetDir . $fileName;
             $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
@@ -55,6 +55,33 @@ function ajouter_une_compétence()
                 move_uploaded_file($_FILES["imgComp"]["tmp_name"], $targetFilePath);
 
                 $sql = "INSERT INTO compétences (noms, image) VALUES ('$titre_comp', '$targetFilePath')";
+
+                $conn->query($sql);
+            } else {
+                echo "File is not an image.";
+            }
+        }
+    }
+}
+function ajouter_une_compétence_second_plan()
+{
+    global $conn;
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST['titreCompSecond']) && isset($_FILES['imgCompSecond']['name'])) {
+            $titre_comp = $_POST['titreCompSecond'];
+
+            $targetDir = "asset/img/";
+            $fileName = basename($_FILES["imgCompSecond"]["name"]);
+            $targetFilePath = $targetDir . $fileName;
+            $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+
+            $check = getimagesize($_FILES["imgCompSecond"]["tmp_name"]);
+
+            if ($check !== false) {
+                move_uploaded_file($_FILES["imgCompSecond"]["tmp_name"], $targetFilePath);
+
+                $sql = "INSERT INTO compétencessecondplan (noms, image) VALUES ('$titre_comp', '$targetFilePath')";
 
                 $conn->query($sql);
             } else {
@@ -167,12 +194,49 @@ function afficher_les_compétences()
     }
 }
 
+function afficher_les_compétences_second_plan()
+{
+    global $conn;
+
+    $sql = "SELECT * FROM compétencessecondplan";
+    $result = $conn->query($sql);
+
+    if ($result->rowCount() > 0) {
+        echo '<table class="table-back-content">';
+        echo '<thead>';
+        echo '<tr>';
+        echo '<th>ID</th>';
+        echo '<th>Titre</th>';
+        echo '<th>Image</th>';
+        echo '<th>Action</th>';
+        echo '</tr>';
+        echo '</thead>';
+        echo '<tbody>';
+
+        while ($row = $result->fetch()) {
+            echo '<tr>';
+            echo '<td>' . $row["id"] . '</td>';
+            echo '<td>' . $row["noms"] . '</td>';
+            echo '<td>' . $row["image"] . '</td>';
+            echo '<td>' . '<a href="./ban-id/ban-skill.php?id=' . $row['id'] . '">Supprimer</a>' . '</td>';
+            echo '</tr>';
+        }
+
+        echo '</tbody>';
+        echo '</table>';
+    } else {
+        echo "Aucun résultat trouvé.";
+    }
+}
+
 function inserer_les_emails()
 {
     global $conn;
     if (isset($_POST['email'])) {
         $email = $_POST['email'];
         $message = $_POST['message'];
+        $email = strip_tags($email);
+        $message = strip_tags($message);
 
         // Requête pour insérer les valeurs 
         $sql = "INSERT INTO contact (email, message) VALUES (:email, :message)";
@@ -221,3 +285,57 @@ function afficher_les_contacts()
     echo '</tbody>';
     echo '</table>';
 }
+
+function afficher_les_projets_front()
+{
+    global $conn;
+
+    $sql = "SELECT * FROM projets";
+    $result = $conn->query($sql);
+
+    if ($result->rowCount() > 0) {
+        while ($row = $result->fetch()) {
+            echo $row["titre"];
+            $row["image"];
+            $row["descriptif"];
+        }
+    } else {
+        echo "Aucun résultat trouvé.";
+    }
+}
+
+function afficher_les_compétences_front()
+{
+    global $conn;
+
+    $sql = "SELECT * FROM compétences";
+    $result = $conn->query($sql);
+    if ($result->rowCount() > 0) {
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            $nom_competence = $row["noms"];
+            $image_competence = $row["image"];
+    
+            echo '<div class="card1"><img src="' . $image_competence . '" alt="' . $nom_competence . '"><p>' . $nom_competence . '</p></div>';
+        }
+    } else {
+        echo "Aucune compétence trouvée.";
+    }
+}
+function afficher_les_compétences_front_second()
+{
+    global $conn;
+
+    $sql = "SELECT * FROM compétencessecondplan";
+    $result = $conn->query($sql);
+    if ($result->rowCount() > 0) {
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            $nom_competence = $row["noms"];
+            $image_competence = $row["image"];
+    
+            echo '<div class="card2"><img src="' . $image_competence . '" alt="' . $nom_competence . '"><p>' . $nom_competence . '</p></div>';
+        }
+    } else {
+        echo "Aucune compétence trouvée.";
+    }
+}
+

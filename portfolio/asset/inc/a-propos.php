@@ -5,6 +5,7 @@
   <div class="svg-a-propos-background">
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 400"><path d="M0.7817077040672302,275.61578369140625C51.37061050534248,259.9466552734375,211.9418792625268,178.61641438802084,304.31512451171875,181.60101318359375C396.6883697609107,184.58561197916666,473.2432454427083,293.07568613688153,555.0211791992188,293.52337646484375C636.7991129557291,293.97106679280597,754.9891357421875,202.49319203694662,794.9827270507812,184.2871551513672" fill="none" stroke-width="15" stroke="url(&quot;#SvgjsLinearGradient1000&quot;)" stroke-linecap="round" transform="matrix(-0.9974999999999999,0,0,0.9974999999999999,794.7697595122456,0.5938073730468716)"></path><defs><linearGradient id="SvgjsLinearGradient1000"><stop stop-color="hsl(0, 0%, 0%)" offset="0"></stop><stop stop-color="hsl(207, 100%, 30%)" offset="1"></stop></linearGradient></defs></svg>
   </div>
+  
   <h2>A PROPOS</h2>
   <div id="containerApropos">
     <div class="a-propos-glass">
@@ -21,6 +22,14 @@
     </div>
   </div>
 
-
   <iframe name="iframeRedirecting" style="display: none;" id="iframeRedirecting"></iframe>
+  <button id="btn-voir-cv">voir mon cv</button>
+  <section id="section-cv-apparition">
+      <div id="apparition-CV">
+          <img id="image-cv" src="asset/img/CV-FERHI-Drys.jpg" alt="image de mon cv">
+      </div>
+      <div id="cross-cv">
+      <i class="fa-solid fa-xmark fa-xl" style="color: #ffffff;"></i>
+      </div>
+  </section>
 </section>

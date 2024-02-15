@@ -3,7 +3,6 @@
 
 <?php
 
-inserer_les_emails();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -14,8 +13,27 @@ require'./phpMailer/PHPMailer.php';
 require'./phpMailer/SMTP.php';
 
 if(isset($_POST['email'])){
-    $message = $_POST['message'];
-    $email = $_POST['email'];
+
+    $email = strip_tags($_POST['email']);
+    $message = strip_tags($_POST['message']);
+
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Adresse email invalide.";
+        exit();
+    }
+    if (!preg_match("/^[a-zA-Z0-9-' .!?]*$/", $message)) {
+        echo "Le message ne peut contenir que des lettres, des chiffres et des caractères spéciaux (. ! ?).";
+        exit();
+    }
+
+    if(empty($email) || empty($message)){
+        echo "Tous les champs sont obligatoires.";
+        exit();
+    }
+
+
+
     $message = "Email : ".$email."\n"." message : ".$message;  
     
 
@@ -44,4 +62,9 @@ if(isset($_POST['email'])){
         echo "";
     }
   }
+
+inserer_les_emails();
+
 ?>
+
+

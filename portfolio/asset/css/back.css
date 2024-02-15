@@ -1,3 +1,9 @@
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ 
  /*--------------------------début back-end ------------------------------*/
  .flex-content-back {
     justify-content: center;

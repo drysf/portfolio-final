@@ -137,6 +137,7 @@
     background-color: rgba(255, 255, 255, 0.181);
     z-index: 10;
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     position: fixed;
   }
   #nav-links-burger-activated{
@@ -163,7 +164,7 @@
     font-size: 11vh;
     font-weight: bold;
     color: rgb(255, 255, 255);
-    margin-left: 10%;
+    margin-left: 9%;
     width: 100%;
     animation: customAni 2s ease 0s  normal none;
   }
@@ -201,11 +202,12 @@
     margin: 50px auto;
     z-index: 5;
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     border-radius: 20px;
     border:1px solid rgba(255, 255, 255, 0.185);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.375);
     padding: 30px;
-    background-color: #ffffff0a;
+    background-color: #ffffff00;
   }
   #glassContainerMain p{
     font-family: Poppins, sans-serif;
@@ -225,6 +227,8 @@
     background-color: rgb(0, 140, 255);
     z-index: 0;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
 
   }
   #bgColor2{
@@ -236,6 +240,7 @@
     background-color: #00a2ff;
     z-index: 0;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
   #bg-blur-border1{
     border: 2px solid white;
@@ -356,6 +361,7 @@
     height:1150px;
     background-color: black;
     position: relative;
+    overflow: hidden;
   }
   #projets svg{
     position: absolute;
@@ -384,6 +390,8 @@
     backdrop-filter: blur(10px);
     border-radius: 20px;
     border:1px solid rgba(255, 255, 255, 0.185);
+    -webkit-backdrop-filter: blur(10px);
+
   }
   
   #glassContainerProjets{
@@ -400,6 +408,7 @@
     position: absolute;
     top: 700px;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 50%;
   }
   #btnCarrousel1{
@@ -559,6 +568,7 @@
   #competences{
     height: 700px;
     background-color: black;
+    overflow: hidden;
   }
   
   #competences h2{
@@ -575,6 +585,7 @@
     box-shadow: 0 8px 9px 0 rgba(255, 255, 255, 0.375);
     border-radius: 10px;
     backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
     background-color: rgba(0, 0, 0, 0.925);
     p{
       color: white;
@@ -672,6 +683,7 @@
     height: 700px;
     background-color: #141e30;
     position: relative;
+    overflow: hidden;
   }
   
   #aPropos h2{ 
@@ -687,6 +699,7 @@
   
   .a-propos-glass{
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
     border:1px solid rgba(255, 255, 255, 0.185);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.375);
@@ -733,6 +746,104 @@
       height: 100%;
     }
   }
+  #btn-voir-cv{
+    position: absolute;
+    z-index: 5;
+    top: 74%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    transition: 0.5s;
+  }
+  #btn-voir-cv{
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    border: 1px solid #206592;
+    outline: none;
+    cursor: pointer;
+    background: #0d0d0d;
+    overflow: hidden;
+    transition: 0.6s;
+    color: white;
+  }
+  #btn-voir-cv:last-child{
+    border-color: #206592;
+  }
+  #btn-voir-cv:before, #btn-voir-cv:after{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    height: 200%;
+    filter: blur(30px);
+    opacity: 0.4;
+    transition: 0.6s;
+  }
+  #btn-voir-cv:before{
+    width: 60px;
+    background: rgba(255,255,255,0.6);
+    transform: translateX(-130px) skewX(-45deg);
+  }
+  #btn-voir-cv:after{
+    width: 30px;
+    background: rgba(255,255,255,0.6);
+    transform: translateX(-130px) skewX(-45deg);
+  }
+  #btn-voir-cv:hover:before,
+  #btn-voir-cv:hover:after{
+    opacity: 0.6;
+    transform: translateX(320px) skewX(-45deg);
+  }
+  #btn-voir-cv:hover{
+    color: #f2f2f2;
+  }
+  #btn-voir-cv:hover:last-child{
+    background: #206592;
+  }
+
+  #apparition-CV{
+    position: absolute;
+    top: -50%;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background: #ffffff04;
+    z-index: 9;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+#image-cv{
+    height: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 25%;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: block;
+}
+
+#cross-cv{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 30px;
+    color: white;
+    z-index: 11;
+    cursor: pointer;
+}
+#section-cv-apparition{
+    display: none;
+}
+
   
   /*-------------------------- fin a propos--------------------------------*/
   /*-------------------------- debut contacts--------------------------------*/
@@ -741,6 +852,7 @@
     height: 700px;
     position: relative;
     background: linear-gradient(#141e30, #243b55);
+    overflow: hidden;
   
   }
   #contact h2{
@@ -956,8 +1068,82 @@
   /*-------------------------- fin contacts--------------------------------*/ 
   /*-------------------------- début footer--------------------------------*/ 
 
+
+  #footer-container{
+    height: 200px;
+    background-color: #000000;
+    position: relative;
+    border: 1px solid #ffffff75;
+  }
+  #footer{
+    position: relative;
+  }
   
+  #footer a{
+    color: white;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+  }
+  #backtotop{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+  }
+  #reseauxSociauxFooter{
+    display: flex;
+    flex-direction: column;
+    margin-top: 45px;
+    a{
+      margin: 10px 30px;
+    }
+  }
+  #juridiques-container{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+  }
   /*-------------------------- fin footer--------------------------------*/ 
+  /*-------------------------- début error--------------------------------*/
+  #section-error {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    padding: 50px;
+}
+
+#h3-error {
+    color: #d9534f;
+    text-align: center;
+    font-size: 50px;
+}
+
+#p-error {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#a-error {
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+  /*-------------------------- fin error--------------------------------*/
+
+
+
 
   /*-------------------------début RWD ------------------------------------*/
   @media screen and (max-width: 1250px){
@@ -970,6 +1156,9 @@
     }
     #aPropos{
       height: 1300px;
+    }
+    #btn-voir-cv{
+      top: 93%;
     }
   }
   @media screen and (max-width: 1000px){
@@ -1018,6 +1207,12 @@
     #competences div{
       height: 150px;
       width: 100px;
+    }
+    #btnCarrousel2{
+      right: 0px;
+    }
+    #btnCarrousel1{
+      left: 0px;
     }
     #glassContainerMain p{
       font-size: 18px;

@@ -1,13 +1,15 @@
 "use strict"
 
 function envoi_formulaire() {
+  // Récupération des éléments du formulaire
   let form = document.getElementById("form-contact");
   let submitMessage = document.getElementById("submitMessage");
 
   submitMessage.style.display = "block";
-  button_valid.click();
+  document.getElementById('validWithScript').click();
   form.reset();
 }
+
 
 
 //----------------------------------------------------
@@ -52,3 +54,25 @@ function addAnimation() {
     });
   }
 }
+
+
+//---------------------btn cv---------------------
+
+let btnApparitionCv = document.getElementById("btn-voir-cv");
+let containerCV = document.getElementById("apparition-CV");
+let cross = document.getElementById("cross-cv");
+let cv = document.getElementById("section-cv-apparition");
+
+btnApparitionCv.addEventListener("click", () => {
+    cv.style.display = "block";
+})
+
+cross.addEventListener("click", () => {
+    let cv = document.getElementById("section-cv-apparition");
+    cv.style.display = "none";
+})
+
+containerCV.addEventListener("click", () => {
+    let cv = document.getElementById("section-cv-apparition");
+    cv.style.display = "none";
+})
